@@ -1,5 +1,5 @@
 postgres.host: 'localhost'
 postgres.port: '5432'
 postgres.user: 'django'
-postgres.pass: ''
+postgres.pass: 'adjeiap2%2aju8'
 postgres.db: 'django'
