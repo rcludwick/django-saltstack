@@ -1,0 +1,5 @@
+base:
+    '*':
+        - deps
+        - webserver
+

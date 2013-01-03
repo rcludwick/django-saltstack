@@ -1,0 +1,4 @@
+git:
+    package:
+        - installed
+
