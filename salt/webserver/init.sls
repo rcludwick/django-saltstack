@@ -3,4 +3,6 @@ nginx:
         - installed
     service:
         - running
+        - require:
+            - pkg: nginx
 
