@@ -5,3 +5,7 @@ postgres.pass: 'adjeiap2%2aju8'
 postgres.db: 'django'
 postgres.runas: 'postgres'
 
+postgresql:
+    databases:
+        - django
+
