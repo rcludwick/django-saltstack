@@ -3,7 +3,7 @@ postgresql:
         - installed
     service:
         - require:
-            -pkg: postgresql
+            - pkg: postgresql
         - running
 
 
