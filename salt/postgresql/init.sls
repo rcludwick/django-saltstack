@@ -1,0 +1,5 @@
+postgresql:
+    pkg:
+        - installed
+
+
