@@ -13,6 +13,7 @@ postgresql:
     - group: postgres
     - mode: 644
     - defaults:
+      wal_e: False
       shared_buffers: 128MB
       work_mem: 16MB
       maintenance_work_mem: 16MB
