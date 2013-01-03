@@ -48,9 +48,10 @@ postgres-user:
 {% for name in pillar['postgresql']['databases'] %}
 postgresql-database-{{ name }}:
   cmd.run:
-    - name: createdb -E UTF8 -T template0 -U postgres -O {{ pillar['postgres.user']}} {{ name }}
+    - name: createdb -E UTF8 -T template0 -U postgres -O {{ pillar['postgres.user'] }} {{ name }}
     - unless: psql -U postgres -ltA | grep '^{{ name }}|'
     - require:
+      - pkg: postgresql
       - service: postgresql
 {% endfor %}
 
