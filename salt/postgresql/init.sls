@@ -38,12 +38,12 @@ postgresql-hba:
 
 postgres-user:
     postgres_user.present:
-    - require:
-        - pkg: postgresql
-        - service: postgresql
-    - name: {{ pillar['postgres.user'] }}
-    - password: {{ pillar['postgres.pass'] }}
-    - createdb: True
+        - require:
+            - pkg: postgresql
+            - service: postgresql
+        - name: {{ pillar['postgres.user'] }}
+        - password: {{ pillar['postgres.pass'] }}
+        - createdb: True
 
 {% for name in pillar['postgresql']['databases'] %}
 postgresql-database-{{ name }}:
