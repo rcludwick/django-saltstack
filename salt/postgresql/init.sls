@@ -17,14 +17,16 @@ postgres-user:
         - password: {{ pillar['postgres.pass'] }}
         - createdb: True
 
-{% for name in pillar['postgresql']['databases'] %}
-postgresql-database-{{ name }}:
-  cmd.run:
-    - require:
-      - pkg: postgresql
-      - service: postgresql
-      - postgres_user.present: django
-    - name: createdb -E UTF8 -T template0 -U {{ pillar['postgres.user'] }} -O {{ pillar['postgres.user'] }} {{ name }}
-    - unless: psql -U postgres -ltA | grep '^{{ name }}|'
-{% endfor %}
 
+postgres-table:
+    postgres_table.present:
+        - require:
+            - pkg: postgresql
+            - service: postgresql
+            - postgres_user.present: {{ pillar['postgres.user'] }}
+        name: 
+            - {{ pillar['postgres.table'] }}
+        owner: 
+            - {{ pillar['postgres.user'] }}
+    runas: 
+        - postgres
