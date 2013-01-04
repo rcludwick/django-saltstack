@@ -23,7 +23,7 @@ postgresql-database-{{ name }}:
     - require:
       - pkg: postgresql
       - service: postgresql
-      - postgres.user_exists: django
+      - postgres_user.present: django
     - name: createdb -E UTF8 -T template0 -U {{ pillar['postgres.user'] }} -O {{ pillar['postgres.user'] }} {{ name }}
     - unless: psql -U postgres -ltA | grep '^{{ name }}|'
 {% endfor %}
